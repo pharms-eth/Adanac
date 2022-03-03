@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6FDAEADF27D07715001A2B00 /* AdanacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEADE27D07715001A2B00 /* AdanacApp.swift */; };
+		6FDAEAE127D07715001A2B00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEAE027D07715001A2B00 /* ContentView.swift */; };
+		6FDAEAE327D07716001A2B00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FDAEAE227D07716001A2B00 /* Assets.xcassets */; };
+		6FDAEAE627D07716001A2B00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FDAEAE527D07716001A2B00 /* Preview Assets.xcassets */; };
+		6FDAEAF027D07716001A2B00 /* AdanacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEAEF27D07716001A2B00 /* AdanacTests.swift */; };
+		6FDAEAFA27D07716001A2B00 /* AdanacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEAF927D07716001A2B00 /* AdanacUITests.swift */; };
+		6FDAEAFC27D07716001A2B00 /* AdanacUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEAFB27D07716001A2B00 /* AdanacUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6FDAEAEC27D07716001A2B00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FDAEAD327D07715001A2B00 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FDAEADA27D07715001A2B00;
+			remoteInfo = Adanac;
+		};
+		6FDAEAF627D07716001A2B00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FDAEAD327D07715001A2B00 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FDAEADA27D07715001A2B00;
+			remoteInfo = Adanac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6FDAEADB27D07715001A2B00 /* Adanac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adanac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FDAEADE27D07715001A2B00 /* AdanacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdanacApp.swift; sourceTree = "<group>"; };
+		6FDAEAE027D07715001A2B00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6FDAEAE227D07716001A2B00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6FDAEAE527D07716001A2B00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6FDAEAEB27D07716001A2B00 /* AdanacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdanacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FDAEAEF27D07716001A2B00 /* AdanacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdanacTests.swift; sourceTree = "<group>"; };
+		6FDAEAF527D07716001A2B00 /* AdanacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdanacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FDAEAF927D07716001A2B00 /* AdanacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdanacUITests.swift; sourceTree = "<group>"; };
+		6FDAEAFB27D07716001A2B00 /* AdanacUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdanacUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6FDAEAD827D07715001A2B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FDAEAE827D07716001A2B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FDAEAF227D07716001A2B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6FDAEAD227D07715001A2B00 = {
+			isa = PBXGroup;
+			children = (
+				6FDAEADD27D07715001A2B00 /* Adanac */,
+				6FDAEAEE27D07716001A2B00 /* AdanacTests */,
+				6FDAEAF827D07716001A2B00 /* AdanacUITests */,
+				6FDAEADC27D07715001A2B00 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6FDAEADC27D07715001A2B00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FDAEADB27D07715001A2B00 /* Adanac.app */,
+				6FDAEAEB27D07716001A2B00 /* AdanacTests.xctest */,
+				6FDAEAF527D07716001A2B00 /* AdanacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6FDAEADD27D07715001A2B00 /* Adanac */ = {
+			isa = PBXGroup;
+			children = (
+				6FDAEADE27D07715001A2B00 /* AdanacApp.swift */,
+				6FDAEAE027D07715001A2B00 /* ContentView.swift */,
+				6FDAEAE227D07716001A2B00 /* Assets.xcassets */,
+				6FDAEAE427D07716001A2B00 /* Preview Content */,
+			);
+			path = Adanac;
+			sourceTree = "<group>";
+		};
+		6FDAEAE427D07716001A2B00 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6FDAEAE527D07716001A2B00 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6FDAEAEE27D07716001A2B00 /* AdanacTests */ = {
+			isa = PBXGroup;
+			children = (
+				6FDAEAEF27D07716001A2B00 /* AdanacTests.swift */,
+			);
+			path = AdanacTests;
+			sourceTree = "<group>";
+		};
+		6FDAEAF827D07716001A2B00 /* AdanacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6FDAEAF927D07716001A2B00 /* AdanacUITests.swift */,
+				6FDAEAFB27D07716001A2B00 /* AdanacUITestsLaunchTests.swift */,
+			);
+			path = AdanacUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6FDAEADA27D07715001A2B00 /* Adanac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FDAEAFF27D07716001A2B00 /* Build configuration list for PBXNativeTarget "Adanac" */;
+			buildPhases = (
+				6FDAEAD727D07715001A2B00 /* Sources */,
+				6FDAEAD827D07715001A2B00 /* Frameworks */,
+				6FDAEAD927D07715001A2B00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Adanac;
+			productName = Adanac;
+			productReference = 6FDAEADB27D07715001A2B00 /* Adanac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6FDAEAEA27D07716001A2B00 /* AdanacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FDAEB0227D07716001A2B00 /* Build configuration list for PBXNativeTarget "AdanacTests" */;
+			buildPhases = (
+				6FDAEAE727D07716001A2B00 /* Sources */,
+				6FDAEAE827D07716001A2B00 /* Frameworks */,
+				6FDAEAE927D07716001A2B00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FDAEAED27D07716001A2B00 /* PBXTargetDependency */,
+			);
+			name = AdanacTests;
+			productName = AdanacTests;
+			productReference = 6FDAEAEB27D07716001A2B00 /* AdanacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6FDAEAF427D07716001A2B00 /* AdanacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FDAEB0527D07716001A2B00 /* Build configuration list for PBXNativeTarget "AdanacUITests" */;
+			buildPhases = (
+				6FDAEAF127D07716001A2B00 /* Sources */,
+				6FDAEAF227D07716001A2B00 /* Frameworks */,
+				6FDAEAF327D07716001A2B00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FDAEAF727D07716001A2B00 /* PBXTargetDependency */,
+			);
+			name = AdanacUITests;
+			productName = AdanacUITests;
+			productReference = 6FDAEAF527D07716001A2B00 /* AdanacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6FDAEAD327D07715001A2B00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					6FDAEADA27D07715001A2B00 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					6FDAEAEA27D07716001A2B00 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 6FDAEADA27D07715001A2B00;
+					};
+					6FDAEAF427D07716001A2B00 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 6FDAEADA27D07715001A2B00;
+					};
+				};
+			};
+			buildConfigurationList = 6FDAEAD627D07715001A2B00 /* Build configuration list for PBXProject "Adanac" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6FDAEAD227D07715001A2B00;
+			productRefGroup = 6FDAEADC27D07715001A2B00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6FDAEADA27D07715001A2B00 /* Adanac */,
+				6FDAEAEA27D07716001A2B00 /* AdanacTests */,
+				6FDAEAF427D07716001A2B00 /* AdanacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6FDAEAD927D07715001A2B00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FDAEAE627D07716001A2B00 /* Preview Assets.xcassets in Resources */,
+				6FDAEAE327D07716001A2B00 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FDAEAE927D07716001A2B00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FDAEAF327D07716001A2B00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6FDAEAD727D07715001A2B00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FDAEAE127D07715001A2B00 /* ContentView.swift in Sources */,
+				6FDAEADF27D07715001A2B00 /* AdanacApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FDAEAE727D07716001A2B00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FDAEAF027D07716001A2B00 /* AdanacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FDAEAF127D07716001A2B00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FDAEAFC27D07716001A2B00 /* AdanacUITestsLaunchTests.swift in Sources */,
+				6FDAEAFA27D07716001A2B00 /* AdanacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6FDAEAED27D07716001A2B00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FDAEADA27D07715001A2B00 /* Adanac */;
+			targetProxy = 6FDAEAEC27D07716001A2B00 /* PBXContainerItemProxy */;
+		};
+		6FDAEAF727D07716001A2B00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FDAEADA27D07715001A2B00 /* Adanac */;
+			targetProxy = 6FDAEAF627D07716001A2B00 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6FDAEAFD27D07716001A2B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6FDAEAFE27D07716001A2B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6FDAEB0027D07716001A2B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Adanac/Preview Content\"";
+				DEVELOPMENT_TEAM = U4R9TJ5FN4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ETH.Pharms.Adanac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6FDAEB0127D07716001A2B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Adanac/Preview Content\"";
+				DEVELOPMENT_TEAM = U4R9TJ5FN4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ETH.Pharms.Adanac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6FDAEB0327D07716001A2B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U4R9TJ5FN4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ETH.Pharms.AdanacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adanac.app/Adanac";
+			};
+			name = Debug;
+		};
+		6FDAEB0427D07716001A2B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U4R9TJ5FN4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ETH.Pharms.AdanacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adanac.app/Adanac";
+			};
+			name = Release;
+		};
+		6FDAEB0627D07716001A2B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U4R9TJ5FN4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ETH.Pharms.AdanacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Adanac;
+			};
+			name = Debug;
+		};
+		6FDAEB0727D07716001A2B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U4R9TJ5FN4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ETH.Pharms.AdanacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Adanac;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6FDAEAD627D07715001A2B00 /* Build configuration list for PBXProject "Adanac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FDAEAFD27D07716001A2B00 /* Debug */,
+				6FDAEAFE27D07716001A2B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FDAEAFF27D07716001A2B00 /* Build configuration list for PBXNativeTarget "Adanac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FDAEB0027D07716001A2B00 /* Debug */,
+				6FDAEB0127D07716001A2B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FDAEB0227D07716001A2B00 /* Build configuration list for PBXNativeTarget "AdanacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FDAEB0327D07716001A2B00 /* Debug */,
+				6FDAEB0427D07716001A2B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FDAEB0527D07716001A2B00 /* Build configuration list for PBXNativeTarget "AdanacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FDAEB0627D07716001A2B00 /* Debug */,
+				6FDAEB0727D07716001A2B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6FDAEAD327D07715001A2B00 /* Project object */;
+}
