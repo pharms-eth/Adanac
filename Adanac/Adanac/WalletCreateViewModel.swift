@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MEWwalletKit
 
 class WalletCreateViewModel: ObservableObject {
     @Published var password1 = "web3swift"

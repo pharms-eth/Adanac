@@ -11,6 +11,7 @@
 		6F196CFB27DC70890041CAC1 /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CFA27DC70890041CAC1 /* DataStructs.swift */; };
 		6F65C86127D8585C00B7B33C /* WalletCreateseedConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F65C86027D8585C00B7B33C /* WalletCreateseedConfirmationView.swift */; };
 		6F65C86327D858FB00B7B33C /* WalletCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */; };
+		6F6FAF0F27DE82CB006E7446 /* SafariWalletCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6F6FAF0E27DE82CB006E7446 /* SafariWalletCore */; };
 		6F7909FD27D466A80041B270 /* EllipticalProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7909FC27D466A80041B270 /* EllipticalProgress.swift */; };
 		6F790A0027D469ED0041B270 /* WalletCreatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7909FF27D469ED0041B270 /* WalletCreatePasswordView.swift */; };
 		6F790A0227D47AFD0041B270 /* WalletCreateSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F790A0127D47AFC0041B270 /* WalletCreateSuccessView.swift */; };
@@ -53,6 +54,7 @@
 		6F65C85F27D6FDB300B7B33C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6F65C86027D8585C00B7B33C /* WalletCreateseedConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateseedConfirmationView.swift; sourceTree = "<group>"; };
 		6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateViewModel.swift; sourceTree = "<group>"; };
+		6F6FAF0D27DE7D1D006E7446 /* core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = core; path = ../../core; sourceTree = "<group>"; };
 		6F7909FC27D466A80041B270 /* EllipticalProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipticalProgress.swift; sourceTree = "<group>"; };
 		6F7909FF27D469ED0041B270 /* WalletCreatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreatePasswordView.swift; sourceTree = "<group>"; };
 		6F790A0127D47AFC0041B270 /* WalletCreateSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateSuccessView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6FAF0F27DE82CB006E7446 /* SafariWalletCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +122,7 @@
 		6F65C88227D8F0C200B7B33C /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				6F6FAF0D27DE7D1D006E7446 /* core */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -236,6 +240,7 @@
 			);
 			name = Adanac;
 			packageProductDependencies = (
+				6F6FAF0E27DE82CB006E7446 /* SafariWalletCore */,
 			);
 			productName = Adanac;
 			productReference = 6FDAEADB27D07715001A2B00 /* Adanac.app */;
@@ -697,6 +702,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F6FAF0E27DE82CB006E7446 /* SafariWalletCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SafariWalletCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6FDAEAD327D07715001A2B00 /* Project object */;
 }
