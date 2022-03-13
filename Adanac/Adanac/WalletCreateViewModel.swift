@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import web3swift
 
 class WalletCreateViewModel: ObservableObject {
     @Published var password1 = "web3swift"
@@ -38,7 +37,7 @@ class WalletCreateViewModel: ObservableObject {
     }
 
     func generateSeed() {
-        seedPhrase = Entropy().getWords()
+//        seedPhrase = Entropy().getWords()
     }
 
     func createAccountWallet() {
@@ -51,7 +50,7 @@ class WalletCreateViewModel: ObservableObject {
 
         let password = password1
 
-        let keystore = try! HDWalletKeyStore(mnemonics: seedPhrase, password: password, language: .english)
+//        let keystore = try! HDWalletKeyStore(mnemonics: seedPhrase, password: password, language: .english)
 
 
 //        let keyData = try! JSONEncoder().encode(keystore.keystoreParams)

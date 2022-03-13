@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import web3swift
 
 struct WalletCreateView: View {
     enum CreationPhase {

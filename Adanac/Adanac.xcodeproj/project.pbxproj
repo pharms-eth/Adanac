@@ -7,19 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F196CEE27D8FA330041CAC1 /* HDWalletKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CED27D8FA330041CAC1 /* HDWalletKeyStore.swift */; };
-		6F196CF027DA7A830041CAC1 /* HDWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CEF27DA7A830041CAC1 /* HDWalletTests.swift */; };
 		6F196CF227DB10110041CAC1 /* Entropy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CF127DB10100041CAC1 /* Entropy.swift */; };
-		6F196CF427DC177B0041CAC1 /* BIPKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CF327DC177B0041CAC1 /* BIPKey.swift */; };
-		6F196CF627DC3CD50041CAC1 /* ETHWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CF527DC3CD50041CAC1 /* ETHWallet.swift */; };
-		6F196CF927DC70430041CAC1 /* EthAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CF827DC70430041CAC1 /* EthAddress.swift */; };
 		6F196CFB27DC70890041CAC1 /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CFA27DC70890041CAC1 /* DataStructs.swift */; };
-		6F196CFD27DC72050041CAC1 /* GenerateWeb3Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CFC27DC72050041CAC1 /* GenerateWeb3Interface.swift */; };
-		6F196CFF27DC7A4B0041CAC1 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CFE27DC7A4B0041CAC1 /* PublicKey.swift */; };
-		6F196D3127DC80760041CAC1 /* HDTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196D3027DC80760041CAC1 /* HDTreeNode.swift */; };
 		6F65C86127D8585C00B7B33C /* WalletCreateseedConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F65C86027D8585C00B7B33C /* WalletCreateseedConfirmationView.swift */; };
 		6F65C86327D858FB00B7B33C /* WalletCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */; };
-		6F65C88727D8F92200B7B33C /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F65C88627D8F92200B7B33C /* web3swift */; };
 		6F7909FD27D466A80041B270 /* EllipticalProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7909FC27D466A80041B270 /* EllipticalProgress.swift */; };
 		6F790A0027D469ED0041B270 /* WalletCreatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7909FF27D469ED0041B270 /* WalletCreatePasswordView.swift */; };
 		6F790A0227D47AFD0041B270 /* WalletCreateSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F790A0127D47AFC0041B270 /* WalletCreateSuccessView.swift */; };
@@ -57,20 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6F196CED27D8FA330041CAC1 /* HDWalletKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletKeyStore.swift; sourceTree = "<group>"; };
-		6F196CEF27DA7A830041CAC1 /* HDWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletTests.swift; sourceTree = "<group>"; };
 		6F196CF127DB10100041CAC1 /* Entropy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entropy.swift; sourceTree = "<group>"; };
-		6F196CF327DC177B0041CAC1 /* BIPKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIPKey.swift; sourceTree = "<group>"; };
-		6F196CF527DC3CD50041CAC1 /* ETHWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHWallet.swift; sourceTree = "<group>"; };
-		6F196CF827DC70430041CAC1 /* EthAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddress.swift; sourceTree = "<group>"; };
 		6F196CFA27DC70890041CAC1 /* DataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructs.swift; sourceTree = "<group>"; };
-		6F196CFC27DC72050041CAC1 /* GenerateWeb3Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateWeb3Interface.swift; sourceTree = "<group>"; };
-		6F196CFE27DC7A4B0041CAC1 /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
-		6F196D3027DC80760041CAC1 /* HDTreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDTreeNode.swift; sourceTree = "<group>"; };
 		6F65C85F27D6FDB300B7B33C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6F65C86027D8585C00B7B33C /* WalletCreateseedConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateseedConfirmationView.swift; sourceTree = "<group>"; };
 		6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateViewModel.swift; sourceTree = "<group>"; };
-		6F65C88427D8F8E800B7B33C /* web3swift-develop */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "web3swift-develop"; path = "../../../Downloads/web3swift-develop"; sourceTree = "<group>"; };
 		6F7909FC27D466A80041B270 /* EllipticalProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipticalProgress.swift; sourceTree = "<group>"; };
 		6F7909FF27D469ED0041B270 /* WalletCreatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreatePasswordView.swift; sourceTree = "<group>"; };
 		6F790A0127D47AFC0041B270 /* WalletCreateSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateSuccessView.swift; sourceTree = "<group>"; };
@@ -98,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F65C88727D8F92200B7B33C /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,21 +100,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6F196CF727DC701B0041CAC1 /* ETHAccount */ = {
-			isa = PBXGroup;
-			children = (
-				6F196CFE27DC7A4B0041CAC1 /* PublicKey.swift */,
-				6F196D3027DC80760041CAC1 /* HDTreeNode.swift */,
-				6F196CFC27DC72050041CAC1 /* GenerateWeb3Interface.swift */,
-			);
-			path = ETHAccount;
-			sourceTree = "<group>";
-		};
 		6F196D3227DC818D0041CAC1 /* Delete */ = {
 			isa = PBXGroup;
 			children = (
-				6F196CED27D8FA330041CAC1 /* HDWalletKeyStore.swift */,
-				6F196CF327DC177B0041CAC1 /* BIPKey.swift */,
+				6F196CFA27DC70890041CAC1 /* DataStructs.swift */,
 			);
 			path = Delete;
 			sourceTree = "<group>";
@@ -142,9 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				6F196CF127DB10100041CAC1 /* Entropy.swift */,
-				6F196CFA27DC70890041CAC1 /* DataStructs.swift */,
-				6F196CF827DC70430041CAC1 /* EthAddress.swift */,
-				6F196CF527DC3CD50041CAC1 /* ETHWallet.swift */,
 			);
 			path = ETH.Account;
 			sourceTree = "<group>";
@@ -152,7 +119,6 @@
 		6F65C88227D8F0C200B7B33C /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				6F65C88427D8F8E800B7B33C /* web3swift-develop */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -209,7 +175,6 @@
 				6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */,
 				6F196D3227DC818D0041CAC1 /* Delete */,
 				6F196D3327DC81AE0041CAC1 /* ETH.Account */,
-				6F196CF727DC701B0041CAC1 /* ETHAccount */,
 				6F7909FE27D469B90041B270 /* WalletCreateViews */,
 				6FDAEB1327D08E0D001A2B00 /* Buttons.swift */,
 				6FDAEB1527D08EA7001A2B00 /* Models.swift */,
@@ -232,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				6FDAEAEF27D07716001A2B00 /* AdanacTests.swift */,
-				6F196CEF27DA7A830041CAC1 /* HDWalletTests.swift */,
 			);
 			path = AdanacTests;
 			sourceTree = "<group>";
@@ -272,7 +236,6 @@
 			);
 			name = Adanac;
 			packageProductDependencies = (
-				6F65C88627D8F92200B7B33C /* web3swift */,
 			);
 			productName = Adanac;
 			productReference = 6FDAEADB27D07715001A2B00 /* Adanac.app */;
@@ -393,26 +356,19 @@
 				6F790A0427D6ED7C0041B270 /* WalletCreateSeedRetrieveView.swift in Sources */,
 				6F65C86127D8585C00B7B33C /* WalletCreateseedConfirmationView.swift in Sources */,
 				6F196CFB27DC70890041CAC1 /* DataStructs.swift in Sources */,
-				6F196D3127DC80760041CAC1 /* HDTreeNode.swift in Sources */,
 				6F7909FD27D466A80041B270 /* EllipticalProgress.swift in Sources */,
-				6F196CFF27DC7A4B0041CAC1 /* PublicKey.swift in Sources */,
 				6F65C86327D858FB00B7B33C /* WalletCreateViewModel.swift in Sources */,
 				6FDAEB0E27D08267001A2B00 /* WalletImportView.swift in Sources */,
 				6FDAEB0F27D08267001A2B00 /* WalletSetupMenuView.swift in Sources */,
-				6F196CF927DC70430041CAC1 /* EthAddress.swift in Sources */,
-				6F196CF427DC177B0041CAC1 /* BIPKey.swift in Sources */,
 				6F790A0227D47AFD0041B270 /* WalletCreateSuccessView.swift in Sources */,
 				6FDAEB0D27D08267001A2B00 /* Colors.swift in Sources */,
 				6F790A0027D469ED0041B270 /* WalletCreatePasswordView.swift in Sources */,
 				6F196CF227DB10110041CAC1 /* Entropy.swift in Sources */,
 				6FDAEB1427D08E0D001A2B00 /* Buttons.swift in Sources */,
 				6FDAEB1127D08267001A2B00 /* WalletCreateView.swift in Sources */,
-				6F196CF627DC3CD50041CAC1 /* ETHWallet.swift in Sources */,
 				6FDAEADF27D07715001A2B00 /* AdanacApp.swift in Sources */,
-				6F196CFD27DC72050041CAC1 /* GenerateWeb3Interface.swift in Sources */,
 				6FDAEB1827D09241001A2B00 /* WalletImportViewModel.swift in Sources */,
 				6FDAEB1627D08EA7001A2B00 /* Models.swift in Sources */,
-				6F196CEE27D8FA330041CAC1 /* HDWalletKeyStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +376,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F196CF027DA7A830041CAC1 /* HDWalletTests.swift in Sources */,
 				6FDAEAF027D07716001A2B00 /* AdanacTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,13 +697,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6F65C88627D8F92200B7B33C /* web3swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = web3swift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6FDAEAD327D07715001A2B00 /* Project object */;
 }

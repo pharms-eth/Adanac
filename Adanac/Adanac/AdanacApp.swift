@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CryptoKit
-import web3swift
 import CryptoSwift
 
 @main
@@ -15,7 +14,7 @@ struct AdanacApp: App {
     @State private var wallet: Wallet? = nil
     var body: some Scene {
         WindowGroup {
-            if let ethWallet = wallet, let addr = ethWallet.address?.address {
+            if let ethWallet = wallet, let addr = ethWallet.address {
                 Text(addr)
             } else {
                 WalletSetupMenuView(wallet: $wallet)
