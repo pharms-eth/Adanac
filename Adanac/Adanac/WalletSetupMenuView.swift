@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SafariWalletCore
+//import MEWwalletKit
 
 struct WalletSetupMenuView: View {
 
     @State private var showingCreatePopover = false
     @State private var showingImportPopover = false
-    @Binding public var wallet: Wallet?
+    @Binding public var wallet: AddressBundle?
 
     var body: some View {
         VStack(alignment: .center){

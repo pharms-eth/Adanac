@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SafariWalletCore
+//import MEWwalletKit
 
 struct WalletCreateView: View {
     enum CreationPhase {
@@ -16,7 +18,7 @@ struct WalletCreateView: View {
     }
 
     @StateObject var model = WalletCreateViewModel()
-    @Binding public var ethWallet: Wallet?
+    @Binding public var ethWallet: AddressBundle?
     @Binding public var showView: Bool
 
     var body: some View {
@@ -29,7 +31,11 @@ struct WalletCreateView: View {
             case .password:
                 WalletCreatePasswordView(model: model)
             case .seedRetrieve:
-                WalletCreateSeedRetrieveView(seedPhrase: model.seedPhrase, setPhase: model.setPhase(_:))
+                WalletCreateSeedRetrieveView(seedPhrase: model.seedPhrase) { phase in
+                    Task {
+                        await model.setPhase(phase)
+                    }
+                }
             case .seedConfirmation:
                 WalletCreateseedConfirmationView(model: model)
             case .creationSuccess:

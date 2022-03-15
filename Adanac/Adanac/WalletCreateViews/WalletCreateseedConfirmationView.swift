@@ -11,6 +11,10 @@ class WalletCreateSeedConfirmationViewModel: ObservableObject {
     @Published public var seedPhraseConfirmation: [String] = []
     @Published public var seedPhraseEntered: [String] = []
     @Published public var seedIndex: Int = -1
+    @Published public var errorCount: Int = 0
+    func incrementError() {
+        errorCount += 1
+    }
 }
 
 struct WalletCreateseedConfirmationView: View {
@@ -23,10 +27,10 @@ struct WalletCreateseedConfirmationView: View {
     var body: some View {
         VStack {
             VStack(spacing: 8.0) {
-                Text("Password")
+                Text("Seed")
                     .font(.system(size: 16.0, weight: .bold))
                     .foregroundColor(.primaryOrange)
-                Text("This password will unlock your Metamask wallet only on this service")
+                Text("Please veirfy the order of your seed phrase")
                     .font(.system(size: 14, weight: .regular))
                     .foregroundColor(.secondaryOrange)
             }
@@ -47,11 +51,13 @@ struct WalletCreateseedConfirmationView: View {
 
             if confirmationModel.seedPhraseConfirmation.isEmpty {
                 Spacer()
-                WalletButton(title: "Set Password") {
+                WalletButton(title: "Next") {
                     guard confirmationModel.seedPhraseConfirmation.isEmpty else {
                         return
                     }
-                    model.setPhase(.creationSuccess)
+                    Task {
+                        await model.setPhase(.creationSuccess)
+                    }
                 }
                 .padding(.bottom, 42)
             } else {
@@ -69,6 +75,7 @@ struct WalletCreateseedConfirmationView: View {
                     .onTapGesture {
 
                         guard let itemIndex = model.seedPhrase.firstIndex(of: index), itemIndex == confirmationModel.seedIndex + 1 else {
+                            confirmationModel.incrementError()
                             return
                         }
                         confirmationModel.seedIndex = itemIndex
@@ -83,6 +90,13 @@ struct WalletCreateseedConfirmationView: View {
         .background(Color.background)
         .onAppear {
             confirmationModel.seedPhraseConfirmation = model.seedPhrase.shuffled().shuffled()
+        }
+        .onChange(of: confirmationModel.errorCount) { newValue in
+            if newValue > 5 {
+                Task {
+                    await model.setPhase(.seedRetrieve)
+                }
+            }
         }
     }
 }

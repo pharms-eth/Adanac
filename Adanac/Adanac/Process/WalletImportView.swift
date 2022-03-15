@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import SafariWalletCore
+//import MEWwalletKit
 
 struct WalletImportView: View {
-    @Binding public var ethWallet: Wallet?
+    @Binding public var ethWallet: AddressBundle?
     @Binding public var showView: Bool
     @StateObject private var viewModel = WalletImportViewModel()
 
 
-    init(wallet: Binding<Wallet?>, showView show: Binding<Bool>) {
+    init(wallet: Binding<AddressBundle?>, showView show: Binding<Bool>) {
         UITextView.appearance().backgroundColor = .clear // First, remove the UITextView's backgroundColor.
         _ethWallet = wallet
         _showView = show
