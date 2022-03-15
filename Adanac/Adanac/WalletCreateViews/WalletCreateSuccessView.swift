@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import SafariWalletCore
-//import MEWwalletKit
 
 struct WalletCreateSuccessView: View {
-    @Binding public var ethWallet: AddressBundle?
+    @Binding public var ethWallet: Wallet?
     @Binding public var showView: Bool
     @ObservedObject public var model: WalletCreateViewModel
     var body: some View {
@@ -42,7 +40,7 @@ struct WalletCreateSuccessView: View {
             .padding()
             .padding(.bottom, 65)
             WalletButton(title: "Next") {
-                ethWallet = model.bundle
+                ethWallet = model.wallet
                 showView = false
             }
             .padding(.bottom, 42)

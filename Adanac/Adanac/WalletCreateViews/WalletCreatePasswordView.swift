@@ -78,9 +78,7 @@ struct WalletCreatePasswordView: View {
                     return
                 }
                 passwordInError = false
-                Task {
-                    await model.setPhase(.seedRetrieve)
-                }
+                model.setPhase(.seedRetrieve)
             }
             .padding(.bottom, 42)
         }

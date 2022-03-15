@@ -6,18 +6,17 @@
 //
 
 import SwiftUI
-//import CryptoKit
-//import CryptoSwift
-import SafariWalletCore
-import MEWwalletKit
+import CryptoKit
+import web3swift
+import CryptoSwift
 
 @main
 struct AdanacApp: App {
-    @State private var wallet: AddressBundle? = nil
+    @State private var wallet: Wallet? = nil
     var body: some Scene {
         WindowGroup {
-            if let ethWallet = wallet {//}, let addr = ethWallet.address {
-                Text(wallet?.addresses.first?.addressString ?? "hello")
+            if let ethWallet = wallet, let addr = ethWallet.address?.address {
+                Text(addr)
             } else {
                 WalletSetupMenuView(wallet: $wallet)
             }
