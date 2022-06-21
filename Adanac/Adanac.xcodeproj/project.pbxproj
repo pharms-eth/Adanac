@@ -7,19 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F196CEE27D8FA330041CAC1 /* HDWalletKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CED27D8FA330041CAC1 /* HDWalletKeyStore.swift */; };
+		6F1139C027E59E2300935988 /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F1139BF27E59E2300935988 /* web3swift */; };
 		6F196CF027DA7A830041CAC1 /* HDWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CEF27DA7A830041CAC1 /* HDWalletTests.swift */; };
 		6F196CF227DB10110041CAC1 /* Entropy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CF127DB10100041CAC1 /* Entropy.swift */; };
-		6F196CF427DC177B0041CAC1 /* BIPKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CF327DC177B0041CAC1 /* BIPKey.swift */; };
-		6F196CF927DC70430041CAC1 /* EthAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CF827DC70430041CAC1 /* EthAddress.swift */; };
 		6F196CFB27DC70890041CAC1 /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CFA27DC70890041CAC1 /* DataStructs.swift */; };
 		6F196CFD27DC72050041CAC1 /* GenerateWeb3Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F196CFC27DC72050041CAC1 /* GenerateWeb3Interface.swift */; };
+		6F1DBA512861513900904EA1 /* ImageCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1DBA502861513900904EA1 /* ImageCodeScannerView.swift */; };
+		6F1DBA532861524900904EA1 /* ScanModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1DBA522861524900904EA1 /* ScanModels.swift */; };
+		6F1DBA5528615DE500904EA1 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1DBA5428615DE500904EA1 /* CodeScannerView.swift */; };
+		6F47B58327E7FC0100553A27 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47B58227E7FC0100553A27 /* WebView.swift */; };
+		6F4BCE8D2842FA4300385439 /* Keystore+Customizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BCE8C2842FA4300385439 /* Keystore+Customizations.swift */; };
 		6F65C86127D8585C00B7B33C /* WalletCreateseedConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F65C86027D8585C00B7B33C /* WalletCreateseedConfirmationView.swift */; };
 		6F65C86327D858FB00B7B33C /* WalletCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */; };
+		6F73379A285C019E00CBA363 /* Address+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733790285C019E00CBA363 /* Address+CoreDataClass.swift */; };
+		6F73379B285C019E00CBA363 /* Address+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733791285C019E00CBA363 /* Address+CoreDataProperties.swift */; };
+		6F73379C285C019E00CBA363 /* CryptoParams+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733792285C019E00CBA363 /* CryptoParams+CoreDataClass.swift */; };
+		6F73379D285C019E00CBA363 /* CryptoParams+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733793285C019E00CBA363 /* CryptoParams+CoreDataProperties.swift */; };
+		6F73379E285C019E00CBA363 /* Keystore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733794285C019E00CBA363 /* Keystore+CoreDataClass.swift */; };
+		6F73379F285C019E00CBA363 /* Keystore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733795285C019E00CBA363 /* Keystore+CoreDataProperties.swift */; };
+		6F7337A0285C019E00CBA363 /* KdfParams+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733796285C019E00CBA363 /* KdfParams+CoreDataClass.swift */; };
+		6F7337A1285C019E00CBA363 /* KdfParams+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733797285C019E00CBA363 /* KdfParams+CoreDataProperties.swift */; };
+		6F7337A2285C019E00CBA363 /* CipherParams+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733798285C019E00CBA363 /* CipherParams+CoreDataClass.swift */; };
+		6F7337A3285C019E00CBA363 /* CipherParams+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F733799285C019E00CBA363 /* CipherParams+CoreDataProperties.swift */; };
+		6F7337A5285ECC4C00CBA363 /* WalletDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7337A4285ECC4C00CBA363 /* WalletDataView.swift */; };
+		6F7337A7285ECC7600CBA363 /* WalletsStoredManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7337A6285ECC7600CBA363 /* WalletsStoredManager.swift */; };
+		6F7337A9285F9CD900CBA363 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7337A8285F9CD900CBA363 /* WalletConnect.swift */; };
+		6F7337AC285F9E5400CBA363 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F7337AB285F9E5400CBA363 /* WalletConnectSwift */; };
+		6F78CD41285FD31500279611 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F78CD40285FD31500279611 /* ScannerViewController.swift */; };
+		6F78CD43285FF9F300279611 /* ScannerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F78CD42285FF9F300279611 /* ScannerCoordinator.swift */; };
 		6F7909FD27D466A80041B270 /* EllipticalProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7909FC27D466A80041B270 /* EllipticalProgress.swift */; };
 		6F790A0027D469ED0041B270 /* WalletCreatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7909FF27D469ED0041B270 /* WalletCreatePasswordView.swift */; };
 		6F790A0227D47AFD0041B270 /* WalletCreateSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F790A0127D47AFC0041B270 /* WalletCreateSuccessView.swift */; };
 		6F790A0427D6ED7C0041B270 /* WalletCreateSeedRetrieveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F790A0327D6ED7C0041B270 /* WalletCreateSeedRetrieveView.swift */; };
+		6F91A62627F14B2400732295 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91A62327F14B2400732295 /* KeychainSwift.swift */; };
+		6F91A62727F14B2400732295 /* KeychainSwiftAccessOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91A62427F14B2400732295 /* KeychainSwiftAccessOptions.swift */; };
+		6F91A62827F14B2400732295 /* TegKeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91A62527F14B2400732295 /* TegKeychainConstants.swift */; };
+		6F91A62C27F41A1D00732295 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91A62B27F41A1D00732295 /* WalletViewModel.swift */; };
+		6F91A62E27F41A6300732295 /* WalletViewModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91A62D27F41A6300732295 /* WalletViewModelData.swift */; };
 		6FDAEADF27D07715001A2B00 /* AdanacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEADE27D07715001A2B00 /* AdanacApp.swift */; };
 		6FDAEAE327D07716001A2B00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FDAEAE227D07716001A2B00 /* Assets.xcassets */; };
 		6FDAEAE627D07716001A2B00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FDAEAE527D07716001A2B00 /* Preview Assets.xcassets */; };
@@ -33,6 +57,10 @@
 		6FDAEB1427D08E0D001A2B00 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEB1327D08E0D001A2B00 /* Buttons.swift */; };
 		6FDAEB1627D08EA7001A2B00 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEB1527D08EA7001A2B00 /* Models.swift */; };
 		6FDAEB1827D09241001A2B00 /* WalletImportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAEB1727D09241001A2B00 /* WalletImportViewModel.swift */; };
+		6FF6E9B22839674500AA05B6 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6E9B12839674500AA05B6 /* KeyChain.swift */; };
+		6FF6E9B42839676800AA05B6 /* WalletPortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6E9B32839676800AA05B6 /* WalletPortfolioView.swift */; };
+		6FF6E9B8283DCEB300AA05B6 /* AdanacWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6E9B6283DCEB300AA05B6 /* AdanacWallet.xcdatamodeld */; };
+		6FF6E9BA283DD0F000AA05B6 /* WalletDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6E9B9283DD0F000AA05B6 /* WalletDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,20 +81,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6F196CED27D8FA330041CAC1 /* HDWalletKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletKeyStore.swift; sourceTree = "<group>"; };
+		6F1139BE27E59E1500935988 /* web3swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = web3swift; path = ../../GitHub/web3swift; sourceTree = "<group>"; };
 		6F196CEF27DA7A830041CAC1 /* HDWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDWalletTests.swift; sourceTree = "<group>"; };
 		6F196CF127DB10100041CAC1 /* Entropy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entropy.swift; sourceTree = "<group>"; };
-		6F196CF327DC177B0041CAC1 /* BIPKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BIPKey.swift; sourceTree = "<group>"; };
-		6F196CF827DC70430041CAC1 /* EthAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddress.swift; sourceTree = "<group>"; };
 		6F196CFA27DC70890041CAC1 /* DataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructs.swift; sourceTree = "<group>"; };
 		6F196CFC27DC72050041CAC1 /* GenerateWeb3Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateWeb3Interface.swift; sourceTree = "<group>"; };
+		6F1DBA502861513900904EA1 /* ImageCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCodeScannerView.swift; sourceTree = "<group>"; };
+		6F1DBA522861524900904EA1 /* ScanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanModels.swift; sourceTree = "<group>"; };
+		6F1DBA5428615DE500904EA1 /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
+		6F47B58227E7FC0100553A27 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		6F4BCE8C2842FA4300385439 /* Keystore+Customizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keystore+Customizations.swift"; sourceTree = "<group>"; };
 		6F65C85F27D6FDB300B7B33C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6F65C86027D8585C00B7B33C /* WalletCreateseedConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateseedConfirmationView.swift; sourceTree = "<group>"; };
 		6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateViewModel.swift; sourceTree = "<group>"; };
+		6F733790285C019E00CBA363 /* Address+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Address+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6F733791285C019E00CBA363 /* Address+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Address+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6F733792285C019E00CBA363 /* CryptoParams+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoParams+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6F733793285C019E00CBA363 /* CryptoParams+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoParams+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6F733794285C019E00CBA363 /* Keystore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keystore+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6F733795285C019E00CBA363 /* Keystore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keystore+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6F733796285C019E00CBA363 /* KdfParams+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KdfParams+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6F733797285C019E00CBA363 /* KdfParams+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KdfParams+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6F733798285C019E00CBA363 /* CipherParams+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CipherParams+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6F733799285C019E00CBA363 /* CipherParams+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CipherParams+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6F7337A4285ECC4C00CBA363 /* WalletDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataView.swift; sourceTree = "<group>"; };
+		6F7337A6285ECC7600CBA363 /* WalletsStoredManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsStoredManager.swift; sourceTree = "<group>"; };
+		6F7337A8285F9CD900CBA363 /* WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnect.swift; sourceTree = "<group>"; };
+		6F78CD40285FD31500279611 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		6F78CD42285FF9F300279611 /* ScannerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCoordinator.swift; sourceTree = "<group>"; };
 		6F7909FC27D466A80041B270 /* EllipticalProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipticalProgress.swift; sourceTree = "<group>"; };
 		6F7909FF27D469ED0041B270 /* WalletCreatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreatePasswordView.swift; sourceTree = "<group>"; };
 		6F790A0127D47AFC0041B270 /* WalletCreateSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateSuccessView.swift; sourceTree = "<group>"; };
 		6F790A0327D6ED7C0041B270 /* WalletCreateSeedRetrieveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateSeedRetrieveView.swift; sourceTree = "<group>"; };
+		6F91A62327F14B2400732295 /* KeychainSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
+		6F91A62427F14B2400732295 /* KeychainSwiftAccessOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftAccessOptions.swift; sourceTree = "<group>"; };
+		6F91A62527F14B2400732295 /* TegKeychainConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegKeychainConstants.swift; sourceTree = "<group>"; };
+		6F91A62927F163DD00732295 /* Adanac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Adanac.entitlements; sourceTree = "<group>"; };
+		6F91A62B27F41A1D00732295 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		6F91A62D27F41A6300732295 /* WalletViewModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelData.swift; sourceTree = "<group>"; };
 		6FDAEADB27D07715001A2B00 /* Adanac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adanac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FDAEADE27D07715001A2B00 /* AdanacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdanacApp.swift; sourceTree = "<group>"; };
 		6FDAEAE227D07716001A2B00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +135,10 @@
 		6FDAEB1327D08E0D001A2B00 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		6FDAEB1527D08EA7001A2B00 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		6FDAEB1727D09241001A2B00 /* WalletImportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImportViewModel.swift; sourceTree = "<group>"; };
+		6FF6E9B12839674500AA05B6 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		6FF6E9B32839676800AA05B6 /* WalletPortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPortfolioView.swift; sourceTree = "<group>"; };
+		6FF6E9B7283DCEB300AA05B6 /* AdanacWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdanacWallet.xcdatamodel; sourceTree = "<group>"; };
+		6FF6E9B9283DD0F000AA05B6 /* WalletDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +146,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F7337AC285F9E5400CBA363 /* WalletConnectSwift in Frameworks */,
+				6F1139C027E59E2300935988 /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,36 +168,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6F196CF727DC701B0041CAC1 /* ETHAccount */ = {
-			isa = PBXGroup;
-			children = (
-				6F196CFC27DC72050041CAC1 /* GenerateWeb3Interface.swift */,
-			);
-			path = ETHAccount;
-			sourceTree = "<group>";
-		};
 		6F196D3227DC818D0041CAC1 /* Delete */ = {
-			isa = PBXGroup;
-			children = (
-				6F196CED27D8FA330041CAC1 /* HDWalletKeyStore.swift */,
-				6F196CF327DC177B0041CAC1 /* BIPKey.swift */,
-			);
-			path = Delete;
-			sourceTree = "<group>";
-		};
-		6F196D3327DC81AE0041CAC1 /* ETH.Account */ = {
 			isa = PBXGroup;
 			children = (
 				6F196CF127DB10100041CAC1 /* Entropy.swift */,
 				6F196CFA27DC70890041CAC1 /* DataStructs.swift */,
-				6F196CF827DC70430041CAC1 /* EthAddress.swift */,
+				6F196CFC27DC72050041CAC1 /* GenerateWeb3Interface.swift */,
+				6F47B58227E7FC0100553A27 /* WebView.swift */,
 			);
-			path = ETH.Account;
+			path = Delete;
+			sourceTree = "<group>";
+		};
+		6F1DBA4E28614FE200904EA1 /* WalletConnectDelete */ = {
+			isa = PBXGroup;
+			children = (
+				6F7337A8285F9CD900CBA363 /* WalletConnect.swift */,
+			);
+			path = WalletConnectDelete;
+			sourceTree = "<group>";
+		};
+		6F1DBA4F28614FF500904EA1 /* WalletConnect */ = {
+			isa = PBXGroup;
+			children = (
+				6F1DBA502861513900904EA1 /* ImageCodeScannerView.swift */,
+				6F1DBA522861524900904EA1 /* ScanModels.swift */,
+				6F1DBA5428615DE500904EA1 /* CodeScannerView.swift */,
+				6F78CD42285FF9F300279611 /* ScannerCoordinator.swift */,
+				6F78CD40285FD31500279611 /* ScannerViewController.swift */,
+			);
+			path = WalletConnect;
 			sourceTree = "<group>";
 		};
 		6F65C88227D8F0C200B7B33C /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				6F1139BE27E59E1500935988 /* web3swift */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -151,16 +214,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6F7909FE27D469B90041B270 /* WalletCreateViews */ = {
+		6F7909FE27D469B90041B270 /* WalletCreate */ = {
 			isa = PBXGroup;
 			children = (
+				6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */,
 				6FDAEB0C27D08267001A2B00 /* WalletCreateView.swift */,
 				6F7909FF27D469ED0041B270 /* WalletCreatePasswordView.swift */,
 				6F790A0127D47AFC0041B270 /* WalletCreateSuccessView.swift */,
 				6F790A0327D6ED7C0041B270 /* WalletCreateSeedRetrieveView.swift */,
 				6F65C86027D8585C00B7B33C /* WalletCreateseedConfirmationView.swift */,
 			);
-			path = WalletCreateViews;
+			path = WalletCreate;
+			sourceTree = "<group>";
+		};
+		6F91A62227F14B1300732295 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				6F91A62327F14B2400732295 /* KeychainSwift.swift */,
+				6FF6E9B12839674500AA05B6 /* KeyChain.swift */,
+				6F91A62427F14B2400732295 /* KeychainSwiftAccessOptions.swift */,
+				6F91A62527F14B2400732295 /* TegKeychainConstants.swift */,
+			);
+			path = KeyChain;
+			sourceTree = "<group>";
+		};
+		6F91A62A27F419F200732295 /* WalletPortfolio */ = {
+			isa = PBXGroup;
+			children = (
+				6F91A62B27F41A1D00732295 /* WalletViewModel.swift */,
+				6F91A62D27F41A6300732295 /* WalletViewModelData.swift */,
+				6FF6E9B32839676800AA05B6 /* WalletPortfolioView.swift */,
+			);
+			path = WalletPortfolio;
 			sourceTree = "<group>";
 		};
 		6FDAEAD227D07715001A2B00 = {
@@ -188,19 +273,24 @@
 		6FDAEADD27D07715001A2B00 /* Adanac */ = {
 			isa = PBXGroup;
 			children = (
+				6F91A62927F163DD00732295 /* Adanac.entitlements */,
 				6F65C85F27D6FDB300B7B33C /* Info.plist */,
 				6FDAEADE27D07715001A2B00 /* AdanacApp.swift */,
+				6F7337A4285ECC4C00CBA363 /* WalletDataView.swift */,
+				6F1DBA4F28614FF500904EA1 /* WalletConnect */,
+				6F1DBA4E28614FE200904EA1 /* WalletConnectDelete */,
+				6F7337A6285ECC7600CBA363 /* WalletsStoredManager.swift */,
+				6FDAEB1327D08E0D001A2B00 /* Buttons.swift */,
 				6FDAEB0827D08266001A2B00 /* Colors.swift */,
 				6FDAEB0A27D08266001A2B00 /* WalletSetupMenuView.swift */,
-				6F7909FC27D466A80041B270 /* EllipticalProgress.swift */,
-				6F65C86227D858FB00B7B33C /* WalletCreateViewModel.swift */,
-				6F196D3227DC818D0041CAC1 /* Delete */,
-				6F196D3327DC81AE0041CAC1 /* ETH.Account */,
-				6F196CF727DC701B0041CAC1 /* ETHAccount */,
-				6F7909FE27D469B90041B270 /* WalletCreateViews */,
-				6FDAEB1327D08E0D001A2B00 /* Buttons.swift */,
 				6FDAEB1527D08EA7001A2B00 /* Models.swift */,
-				6FDAEB1227D08C8A001A2B00 /* Process */,
+				6F196D3227DC818D0041CAC1 /* Delete */,
+				6F7909FC27D466A80041B270 /* EllipticalProgress.swift */,
+				6FF6E9B5283DCE8000AA05B6 /* CoreData */,
+				6F91A62A27F419F200732295 /* WalletPortfolio */,
+				6F91A62227F14B1300732295 /* KeyChain */,
+				6F7909FE27D469B90041B270 /* WalletCreate */,
+				6FDAEB1227D08C8A001A2B00 /* WalletImport */,
 				6FDAEAE227D07716001A2B00 /* Assets.xcassets */,
 				6FDAEAE427D07716001A2B00 /* Preview Content */,
 			);
@@ -233,13 +323,33 @@
 			path = AdanacUITests;
 			sourceTree = "<group>";
 		};
-		6FDAEB1227D08C8A001A2B00 /* Process */ = {
+		6FDAEB1227D08C8A001A2B00 /* WalletImport */ = {
 			isa = PBXGroup;
 			children = (
 				6FDAEB0927D08266001A2B00 /* WalletImportView.swift */,
 				6FDAEB1727D09241001A2B00 /* WalletImportViewModel.swift */,
 			);
-			path = Process;
+			path = WalletImport;
+			sourceTree = "<group>";
+		};
+		6FF6E9B5283DCE8000AA05B6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6F733790285C019E00CBA363 /* Address+CoreDataClass.swift */,
+				6F733791285C019E00CBA363 /* Address+CoreDataProperties.swift */,
+				6F733792285C019E00CBA363 /* CryptoParams+CoreDataClass.swift */,
+				6F733793285C019E00CBA363 /* CryptoParams+CoreDataProperties.swift */,
+				6F733794285C019E00CBA363 /* Keystore+CoreDataClass.swift */,
+				6F733795285C019E00CBA363 /* Keystore+CoreDataProperties.swift */,
+				6F733796285C019E00CBA363 /* KdfParams+CoreDataClass.swift */,
+				6F733797285C019E00CBA363 /* KdfParams+CoreDataProperties.swift */,
+				6F733798285C019E00CBA363 /* CipherParams+CoreDataClass.swift */,
+				6F733799285C019E00CBA363 /* CipherParams+CoreDataProperties.swift */,
+				6F4BCE8C2842FA4300385439 /* Keystore+Customizations.swift */,
+				6FF6E9B6283DCEB300AA05B6 /* AdanacWallet.xcdatamodeld */,
+				6FF6E9B9283DD0F000AA05B6 /* WalletDataController.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +360,7 @@
 			buildConfigurationList = 6FDAEAFF27D07716001A2B00 /* Build configuration list for PBXNativeTarget "Adanac" */;
 			buildPhases = (
 				6FDAEAD727D07715001A2B00 /* Sources */,
+				6F1B1A252809DBE100C901C3 /* Run SwiftLint */,
 				6FDAEAD827D07715001A2B00 /* Frameworks */,
 				6FDAEAD927D07715001A2B00 /* Resources */,
 			);
@@ -259,6 +370,8 @@
 			);
 			name = Adanac;
 			packageProductDependencies = (
+				6F1139BF27E59E2300935988 /* web3swift */,
+				6F7337AB285F9E5400CBA363 /* WalletConnectSwift */,
 			);
 			productName = Adanac;
 			productReference = 6FDAEADB27D07715001A2B00 /* Adanac.app */;
@@ -333,6 +446,8 @@
 			);
 			mainGroup = 6FDAEAD227D07715001A2B00;
 			packageReferences = (
+				6F1B1A2328088E0D00C901C3 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				6F7337AA285F9E5400CBA363 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
 			);
 			productRefGroup = 6FDAEADC27D07715001A2B00 /* Products */;
 			projectDirPath = "";
@@ -371,31 +486,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F1B1A252809DBE100C901C3 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Adds support for Apple Silicon brew directory\n# export PATH=\"$PATH:/opt/homebrew/bin\"\n\n# if which swiftlint; then\n# swiftlint autocorrect && swiftlint\n# else\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n# fi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6FDAEAD727D07715001A2B00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F73379D285C019E00CBA363 /* CryptoParams+CoreDataProperties.swift in Sources */,
 				6F790A0427D6ED7C0041B270 /* WalletCreateSeedRetrieveView.swift in Sources */,
 				6F65C86127D8585C00B7B33C /* WalletCreateseedConfirmationView.swift in Sources */,
+				6F73379B285C019E00CBA363 /* Address+CoreDataProperties.swift in Sources */,
+				6FF6E9BA283DD0F000AA05B6 /* WalletDataController.swift in Sources */,
+				6F7337A7285ECC7600CBA363 /* WalletsStoredManager.swift in Sources */,
 				6F196CFB27DC70890041CAC1 /* DataStructs.swift in Sources */,
+				6F78CD41285FD31500279611 /* ScannerViewController.swift in Sources */,
 				6F7909FD27D466A80041B270 /* EllipticalProgress.swift in Sources */,
+				6F4BCE8D2842FA4300385439 /* Keystore+Customizations.swift in Sources */,
+				6F1DBA5528615DE500904EA1 /* CodeScannerView.swift in Sources */,
+				6F91A62C27F41A1D00732295 /* WalletViewModel.swift in Sources */,
+				6F7337A1285C019E00CBA363 /* KdfParams+CoreDataProperties.swift in Sources */,
+				6F91A62827F14B2400732295 /* TegKeychainConstants.swift in Sources */,
+				6FF6E9B8283DCEB300AA05B6 /* AdanacWallet.xcdatamodeld in Sources */,
 				6F65C86327D858FB00B7B33C /* WalletCreateViewModel.swift in Sources */,
+				6F73379A285C019E00CBA363 /* Address+CoreDataClass.swift in Sources */,
 				6FDAEB0E27D08267001A2B00 /* WalletImportView.swift in Sources */,
 				6FDAEB0F27D08267001A2B00 /* WalletSetupMenuView.swift in Sources */,
-				6F196CF927DC70430041CAC1 /* EthAddress.swift in Sources */,
-				6F196CF427DC177B0041CAC1 /* BIPKey.swift in Sources */,
 				6F790A0227D47AFD0041B270 /* WalletCreateSuccessView.swift in Sources */,
+				6F7337A9285F9CD900CBA363 /* WalletConnect.swift in Sources */,
+				6F1DBA532861524900904EA1 /* ScanModels.swift in Sources */,
+				6F73379C285C019E00CBA363 /* CryptoParams+CoreDataClass.swift in Sources */,
+				6F91A62E27F41A6300732295 /* WalletViewModelData.swift in Sources */,
 				6FDAEB0D27D08267001A2B00 /* Colors.swift in Sources */,
 				6F790A0027D469ED0041B270 /* WalletCreatePasswordView.swift in Sources */,
+				6FF6E9B22839674500AA05B6 /* KeyChain.swift in Sources */,
+				6F7337A3285C019E00CBA363 /* CipherParams+CoreDataProperties.swift in Sources */,
 				6F196CF227DB10110041CAC1 /* Entropy.swift in Sources */,
 				6FDAEB1427D08E0D001A2B00 /* Buttons.swift in Sources */,
+				6F7337A0285C019E00CBA363 /* KdfParams+CoreDataClass.swift in Sources */,
+				6F7337A5285ECC4C00CBA363 /* WalletDataView.swift in Sources */,
+				6F47B58327E7FC0100553A27 /* WebView.swift in Sources */,
 				6FDAEB1127D08267001A2B00 /* WalletCreateView.swift in Sources */,
+				6F73379E285C019E00CBA363 /* Keystore+CoreDataClass.swift in Sources */,
+				6F91A62627F14B2400732295 /* KeychainSwift.swift in Sources */,
+				6FF6E9B42839676800AA05B6 /* WalletPortfolioView.swift in Sources */,
+				6F91A62727F14B2400732295 /* KeychainSwiftAccessOptions.swift in Sources */,
 				6FDAEADF27D07715001A2B00 /* AdanacApp.swift in Sources */,
 				6F196CFD27DC72050041CAC1 /* GenerateWeb3Interface.swift in Sources */,
+				6F73379F285C019E00CBA363 /* Keystore+CoreDataProperties.swift in Sources */,
 				6FDAEB1827D09241001A2B00 /* WalletImportViewModel.swift in Sources */,
 				6FDAEB1627D08EA7001A2B00 /* Models.swift in Sources */,
-				6F196CEE27D8FA330041CAC1 /* HDWalletKeyStore.swift in Sources */,
+				6F1DBA512861513900904EA1 /* ImageCodeScannerView.swift in Sources */,
+				6F7337A2285C019E00CBA363 /* CipherParams+CoreDataClass.swift in Sources */,
+				6F78CD43285FF9F300279611 /* ScannerCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +717,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Adanac/Adanac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Adanac/Preview Content\"";
@@ -561,6 +725,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Adanac/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To Connect Wallets and Take Pictures";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "To Unlock Your App";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To Retrieve QR codes and images";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -573,6 +740,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ETH.Pharms.Adanac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -584,6 +754,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Adanac/Adanac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Adanac/Preview Content\"";
@@ -591,6 +762,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Adanac/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To Connect Wallets and Take Pictures";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "To Unlock Your App";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To Retrieve QR codes and images";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -603,6 +777,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ETH.Pharms.Adanac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -725,6 +902,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6F1B1A2328088E0D00C901C3 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		6F7337AA285F9E5400CBA363 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WalletConnect/WalletConnectSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F1139BF27E59E2300935988 /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = web3swift;
+		};
+		6F7337AB285F9E5400CBA363 /* WalletConnectSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F7337AA285F9E5400CBA363 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
+			productName = WalletConnectSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		6FF6E9B6283DCEB300AA05B6 /* AdanacWallet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6FF6E9B7283DCEB300AA05B6 /* AdanacWallet.xcdatamodel */,
+			);
+			currentVersion = 6FF6E9B7283DCEB300AA05B6 /* AdanacWallet.xcdatamodel */;
+			path = AdanacWallet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6FDAEAD327D07715001A2B00 /* Project object */;
 }

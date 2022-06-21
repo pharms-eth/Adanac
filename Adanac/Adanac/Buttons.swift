@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct WalletSetupStyledButton<Content: View>: View {
+struct WalletSetupStyledButton: View {//<Content: View>: View {
 
     @Binding public var showingPopover: Bool
     var title: String
     var background: Color
-    var content: () -> Content
+//    var content: () -> Content
 
     var body: some View {
         HStack {
@@ -28,9 +28,9 @@ struct WalletSetupStyledButton<Content: View>: View {
             .onTapGesture {
                 showingPopover.toggle()
             }
-            .popover(isPresented: $showingPopover) {
-                content()
-            }
+//            .popover(isPresented: $showingPopover) {
+//                content()
+//            }
             .padding(.vertical, 8)
             .padding(.horizontal, 24)
     }

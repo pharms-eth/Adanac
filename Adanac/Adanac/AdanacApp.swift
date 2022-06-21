@@ -9,39 +9,98 @@ import SwiftUI
 import CryptoKit
 import web3swift
 import CryptoSwift
+import CoreData
+import AuthenticationServices
+import PhotosUI
+
 
 @main
 struct AdanacApp: App {
-    @State private var wallet: Wallet? = nil
+    @StateObject private var dataController = WalletDataController()
+
+    @StateObject private var WCServer = WalletConnectServerManager()
+
     var body: some Scene {
         WindowGroup {
-            if let ethWallet = wallet, let addr = ethWallet.address?.address {
-                Text(addr)
-            } else {
-                WalletSetupMenuView(wallet: $wallet)
+            ImageCodeScannerView()
+            CodeScannerView { result in
+                switch result {
+                case .success(let code):
+                    print("yay!: \(code)")
+                    WCServer.didScan(code.string)
+                case .failure(_):
+                    print("boo!")
+                }
             }
+            .onDisappear {
+                WCServer.disconnect()
+            }
+            WalletDataView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
+                .onOpenURL { url in
+//                    guard let controller = window?.rootViewController as? MainViewController else {
+//                        return false
+//                    }
+//                    controller.didScan(url.absoluteString.replacingOccurrences(of: "wc://wc?uri=", with: ""))
+//                    guard let url = WCURL(code) else { return }
+//                            scanQRCodeButton.isEnabled = false
+//                            scannerController?.dismiss(animated: true)
+//                            do {
+//                                try self.server.connect(to: url)
+//                            } catch {
+//                                return
+//                            }
+                }
         }
+
+        #if os(macOS)
+        MenuBarExtra {
+            Text("exxtra view")
+        } label: {
+            Label("My Wallet", image: "Image")
+        }
+        .menuBarExtraStyle(.window)
+        #endif
+
     }
 }
 
-extension String {
-   /// Splits a string into groups of `every` n characters, grouping from left-to-right by default. If `backwards` is true, right-to-left.
-   public func split(every: Int, backwards: Bool = false) -> [String] {
-       var result = [String]()
+//struct WalletFilterView: View {
+//    @FetchRequest var fetchRequest: FetchedResults<Keystore>
+//    var body: some View {
+//        Text("Some Text")
+//    }
+//    init(filter: String) {
+//        _fetchRequest = FetchRequest(sortDescriptors: [], predicate: nil, animation: .linear)
+////        fetchRequest.sortDescriptors
+////        fetchRequest.nsPredicate
+//    }
+//    @FetchRequest(entity: Keystore.entity(), sortDescriptors: []) var wallets: FetchedResults<Keystore>
+//}
 
-       for i in stride(from: 0, to: self.count, by: every) {
-           switch backwards {
-           case true:
-               let endIndex = self.index(self.endIndex, offsetBy: -i)
-               let startIndex = self.index(endIndex, offsetBy: -every, limitedBy: self.startIndex) ?? self.startIndex
-               result.insert(String(self[startIndex..<endIndex]), at: 0)
-           case false:
-               let startIndex = self.index(self.startIndex, offsetBy: i)
-               let endIndex = self.index(startIndex, offsetBy: every, limitedBy: self.endIndex) ?? self.endIndex
-               result.append(String(self[startIndex..<endIndex]))
-           }
-       }
 
-       return result
-   }
-}
+// class AdanacASAuth: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+//    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+////        UIWindow()
+//        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+//                let window = windowScene?.windows.first
+//        return window!
+//    }
+//    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+//        print(error)
+//    }
+//    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+//        print(authorization)
+//    }
+// }
+
+
+//    var adanacASAuth = AdanacASAuth()
+//                    .onAppear {
+//                        let request = ASAuthorizationPasswordProvider().createRequest() // Initialize Apple ID authorization request
+//
+//                           let controller = ASAuthorizationController(authorizationRequests: [request]) // Initialize the authorization controller
+//                           controller.delegate = adanacASAuth
+//                           controller.presentationContextProvider = adanacASAuth
+//                           controller.performRequests() // Perform the authorization request
+//                    }

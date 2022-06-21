@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import web3swift
 
 struct WalletCreateSuccessView: View {
-    @Binding public var ethWallet: Wallet?
+    @Binding public var ethWallet: WalletKeyStoreAccess?
     @Binding public var showView: Bool
     @ObservedObject public var model: WalletCreateViewModel
     var body: some View {
         VStack {
 
-            //check mark
+            // check mark
             Image(systemName: "checkmark.circle.fill")
                 .resizable()
                 .foregroundColor(.primaryOrange)
@@ -40,7 +41,9 @@ struct WalletCreateSuccessView: View {
             .padding()
             .padding(.bottom, 65)
             WalletButton(title: "Next") {
-                ethWallet = model.wallet
+                if let wallet = model.wallet {
+                    ethWallet = .full(wallet)
+                }
                 showView = false
             }
             .padding(.bottom, 42)
@@ -48,7 +51,6 @@ struct WalletCreateSuccessView: View {
         .background(Color.background)
     }
 }
-
 
 struct WalletCreateSuccessView_Previews: PreviewProvider {
     static var previews: some View {

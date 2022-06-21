@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Address" representedClassName="Address" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <relationship name="keystore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Keystore" inverseName="address" inverseEntity="Keystore"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="address"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CipherParams" representedClassName="CipherParams" syncable="YES">
+        <attribute name="iv" optional="YES" attributeType="String"/>
+        <relationship name="crypto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CryptoParams" inverseName="cipherparams" inverseEntity="CryptoParams"/>
+    </entity>
+    <entity name="CryptoParams" representedClassName="CryptoParams" syncable="YES">
+        <attribute name="cipher" optional="YES" attributeType="String"/>
+        <attribute name="ciphertext" optional="YES" attributeType="String"/>
+        <attribute name="kdf" optional="YES" attributeType="String"/>
+        <attribute name="mac" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="String"/>
+        <relationship name="cipherparams" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CipherParams" inverseName="crypto" inverseEntity="CipherParams"/>
+        <relationship name="kdfparams" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="KdfParams" inverseName="crypto" inverseEntity="KdfParams"/>
+        <relationship name="keystore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Keystore" inverseName="crypto" inverseEntity="Keystore"/>
+    </entity>
+    <entity name="KdfParams" representedClassName="KdfParams" syncable="YES">
+        <attribute name="c" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dklen" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="n" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="p" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="prf" optional="YES" attributeType="String"/>
+        <attribute name="r" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="salt" optional="YES" attributeType="String"/>
+        <relationship name="crypto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CryptoParams" inverseName="kdfparams" inverseEntity="CryptoParams"/>
+    </entity>
+    <entity name="Keystore" representedClassName="Keystore" syncable="YES">
+        <attribute name="access" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isHDWallet" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="rootPath" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="address" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Address" inverseName="keystore" inverseEntity="Address"/>
+        <relationship name="crypto" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CryptoParams" inverseName="keystore" inverseEntity="CryptoParams"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="Address" positionX="-63" positionY="9" width="128" height="74"/>
+        <element name="CipherParams" positionX="-45" positionY="63" width="128" height="59"/>
+        <element name="CryptoParams" positionX="-54" positionY="18" width="128" height="149"/>
+        <element name="KdfParams" positionX="-36" positionY="72" width="128" height="149"/>
+        <element name="Keystore" positionX="-63" positionY="-18" width="128" height="134"/>
+    </elements>
+</model>

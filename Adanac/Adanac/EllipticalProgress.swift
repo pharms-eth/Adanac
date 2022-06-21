@@ -24,7 +24,7 @@ struct EllipticalProgress: View {
                     .overlay(
                         Rectangle()
                             .fill(Color.primaryOrange)
-                            .scaleEffect((progress == .mid || progress == .end) ? 1 : 0 , anchor: .leading)
+                            .scaleEffect((progress == .mid || progress == .end) ? 1 : 0, anchor: .leading)
                             .animation(.linear(duration: 1.0), value: progress)
                     )
 
@@ -34,7 +34,7 @@ struct EllipticalProgress: View {
                     .overlay(
                         Rectangle()
                             .fill(Color.primaryOrange)
-                            .scaleEffect((progress == .end) ? 1 : 0 , anchor: .leading)
+                            .scaleEffect((progress == .end) ? 1 : 0, anchor: .leading)
                             .animation(.linear(duration: 1.0), value: progress)
                     )
             }

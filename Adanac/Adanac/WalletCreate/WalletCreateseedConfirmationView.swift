@@ -18,8 +18,6 @@ struct WalletCreateseedConfirmationView: View {
     @ObservedObject var model: WalletCreateViewModel
     @StateObject var confirmationModel = WalletCreateSeedConfirmationViewModel()
 
-
-
     var body: some View {
         VStack {
             VStack(spacing: 8.0) {
@@ -82,7 +80,7 @@ struct WalletCreateseedConfirmationView: View {
         }
         .background(Color.background)
         .onAppear {
-            confirmationModel.seedPhraseConfirmation = model.seedPhrase.shuffled().shuffled()
+            confirmationModel.seedPhraseConfirmation = model.seedPhrase// .shuffled().shuffled()
         }
     }
 }
