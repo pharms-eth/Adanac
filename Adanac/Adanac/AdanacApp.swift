@@ -6,60 +6,43 @@
 //
 
 import SwiftUI
-import CryptoKit
-import web3swift
-import CryptoSwift
-import CoreData
-import AuthenticationServices
-import PhotosUI
+//import web3swift
+//import CoreData
+//import AuthenticationServices
+
 
 
 @main
 struct AdanacApp: App {
     @StateObject private var dataController = WalletDataController()
-
-    @StateObject private var WCServer = WalletConnectServerManager()
+//    @SceneStorage("text")
+    @StateObject private var wcServer = WalletConnectServerManager()
 
     var body: some Scene {
         WindowGroup {
-            ImageCodeScannerView()
-            CodeScannerView { result in
-                switch result {
-                case .success(let code):
-                    print("yay!: \(code)")
-                    WCServer.didScan(code.string)
-                case .failure(_):
-                    print("boo!")
-                }
-            }
-            .onDisappear {
-                WCServer.disconnect()
-            }
-            WalletDataView()
+            WalletDataView(wcServer: wcServer)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .onOpenURL { url in
-//                    guard let controller = window?.rootViewController as? MainViewController else {
-//                        return false
-//                    }
-//                    controller.didScan(url.absoluteString.replacingOccurrences(of: "wc://wc?uri=", with: ""))
-//                    guard let url = WCURL(code) else { return }
-//                            scanQRCodeButton.isEnabled = false
-//                            scannerController?.dismiss(animated: true)
-//                            do {
-//                                try self.server.connect(to: url)
-//                            } catch {
-//                                return
-//                            }
+                    wcServer.didScan(url.absoluteString.replacingOccurrences(of: "wc://wc?uri=", with: ""))
+                }
+                .userActivity("ETH.ADANAC.OPENAPP", isActive: true) { activity in
+                    print("")
+                }
+                .onContinueUserActivity("ETH.ADANAC.OPENAPP") { activity in
+                    print("")
                 }
         }
 
         #if os(macOS)
-        MenuBarExtra {
-            Text("exxtra view")
-        } label: {
-            Label("My Wallet", image: "Image")
+//        MenuBarExtra {
+//            Text("exxtra view")
+//        } label: {
+//            Label("My Wallet", image: "Image")
+//        }
+//        .menuBarExtraStyle(.window)
+        Settings {
+            Text("YOUR SETTINGS")
         }
-        .menuBarExtraStyle(.window)
         #endif
 
     }

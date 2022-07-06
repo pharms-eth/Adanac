@@ -2,7 +2,7 @@
 //  Keystore+CoreDataProperties.swift
 //  Adanac
 //
-//  Created by Daniel Bell on 6/18/22.
+//  Created by Daniel Bell on 7/1/22.
 //
 //
 
@@ -16,11 +16,13 @@ extension Keystore {
         return NSFetchRequest<Keystore>(entityName: "Keystore")
     }
 
+    @NSManaged public var access: String?
     @NSManaged public var id: String?
     @NSManaged public var isHDWallet: Bool
     @NSManaged public var rootPath: String?
     @NSManaged public var version: Int16
-    @NSManaged public var access: String?
+    @NSManaged public var nickName: String?
+    @NSManaged public var tint: String?
     @NSManaged public var address: NSSet?
     @NSManaged public var crypto: CryptoParams?
 

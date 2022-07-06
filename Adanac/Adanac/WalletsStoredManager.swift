@@ -10,13 +10,18 @@ import Combine
 import web3swift
 
 class WalletsStoredManager: NSObject, ObservableObject {
-    @Published var wallets: [Keystore]?
+
     @Published var wallet: WalletKeyStoreAccess?
+    @Published var currentWallet: AbstractKeystoreParams?
     @Published var showingCreatePopover = false
     @Published var showingImportPopover = false
+    @Published var showingWalletConnectPopover = false
 
     private var cancellables: [AnyCancellable] = []
     let moc = WalletDataController().container.viewContext
+
+
+    @Published var wallets: [Keystore]?
     let fetchRequest = Keystore.fetchRequest()
 
     override init() {
@@ -45,6 +50,73 @@ class WalletsStoredManager: NSObject, ObservableObject {
             }
         }
         .store(in: &cancellables)
+        
+    }
+
+    func setCurrent(keystore: Keystore) {
+
+        let keystoreVersion = keystore.version
+
+        guard let keystoreID = keystore.id,
+              let keystoreCrypto = keystore.crypto,
+              let keystoreCipher = keystore.crypto?.cipherparams,
+              let keystoreKdf = keystore.crypto?.kdfparams else {
+            return
+        }
+
+        let kdf = KdfParamsV3(salt: keystoreKdf.salt ?? "",
+                              dklen: Int(keystoreKdf.dklen),
+                              n: Int(keystoreKdf.n),
+                              p: Int(keystoreKdf.p),
+                              r: Int(keystoreKdf.r),
+                              c: Int(keystoreKdf.c),
+                              prf: keystoreKdf.prf)
+
+        let crypto = CryptoParamsV3(ciphertext: keystoreCrypto.ciphertext ?? "",
+                                    cipher: keystoreCrypto.cipher ?? "",
+                                    cipherparams: CipherParamsV3(iv: keystoreCipher.iv ?? ""),
+                                    kdf: keystoreCrypto.kdf ?? "",
+                                    kdfparams: kdf,
+                                    mac: keystoreCrypto.mac ?? "",
+                                    version: keystoreCrypto.version)
+
+        if keystore.isHDWallet {
+            var crrnt = KeystoreParamsBIP32(crypto: crypto, id: keystoreID, version: Int(keystoreVersion), rootPath: keystore.rootPath)
+
+            let addressValues: [PathAddressPair] = keystore.addressArray.compactMap {
+                guard let path = $0.path, let address = $0.address else { return nil }
+                return PathAddressPair(path: path, address: address)
+            }
+            crrnt.pathAddressPairs = addressValues
+
+            self.currentWallet = crrnt
+
+        } else {
+            let addressValue: Address? = keystore.addressArray.first(where: { $0.address != nil })
+
+            let crrnt = KeystoreParamsV3(address: addressValue?.address, crypto: crypto, id: keystoreID, version: Int(keystoreVersion))
+            self.currentWallet = crrnt
+        }
+        
+    }
+
+    func bulkLoadTest() {
+        let keyStrings = ["0x57757e3d981446d585af0d9ae4d7df6d64647806", "0xa9D60735AB0901F84F5D04b465FA2F1a6d0Aa7Ee", "0x853B811892B8107860E8b71e670a83C462B4A507", "0x84D34f4f83a87596Cd3FB6887cFf8F17Bf5A7B83", "0x1Db3439a222C519ab44bb1144fC28167b4Fa6EE6", "0x179456bf16752FE5Eb8789148E5C98Eb39D87Fe5", "0xca436e14855323927d6e6264470ded36455fc8bd", "0x220866b1a2219f40e72f5c628b65d54268ca3a9d", "0xc5ed2333f8a2C351fCA35E5EBAdb2A82F5d254C3", "0x068B65394EBB0e19DFF45880729C77fAAF3b5195", "0xf74344E4C2Dfdc9aB5DDF6E95379c7119e2bBc56", "0x853B811892B8107860E8b71e670a83C462B4A507", "0x1BC80b413562Bc3362f7e8d7431255d5D18441a7"]
+
+        let ethAddr = keyStrings.compactMap { EthereumAddress($0) }
+        let keyStores = ethAddr.compactMap { PublicKeyStore(addresses: [$0], isHDKeystore: false, ensDomain: nil) }
+
+        let store = keyStores.randomElement()!
+        Task {
+            try? await save(keystore: store, accessLevel: .readOnly)
+        }
+
+//        keyStores.forEach { store in
+//            try? save(keystore: store, accessLevel: .readOnly)
+//        }
+
+//        return .readOnly()
+
         
     }
 

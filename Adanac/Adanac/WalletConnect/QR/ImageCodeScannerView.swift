@@ -5,12 +5,12 @@
 //  Created by Daniel Bell on 6/20/22.
 //
 
-import SwiftUI
-
 import PhotosUI
 import SwiftUI
 
 struct ImageCodeScannerView: UIViewControllerRepresentable {
+    @Binding public var showView: Bool
+    public var completion: (Result<ScanResult, ScanError>) -> Void
     //    @Binding var image: UIImage?
 
     //            if #available(iOS 16.0, *) {
@@ -33,26 +33,33 @@ struct ImageCodeScannerView: UIViewControllerRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(showView: $showView, completion: completion)
     }
 
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
-        let parent: ImageCodeScannerView
+        @Binding public var showView: Bool
+        public var completion: (Result<ScanResult, ScanError>) -> Void
 
-        init(_ parent: ImageCodeScannerView) {
-            self.parent = parent
+        init(showView: Binding<Bool>, completion: @escaping (Result<ScanResult, ScanError>) -> Void) {
+            _showView = showView
+            self.completion = completion
         }
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             picker.dismiss(animated: true)
+            showView = false
 
             guard let provider = results.first?.itemProvider else {
+                completion(.failure(.badInput))
                 return
             }
 
             if provider.canLoadObject(ofClass: UIImage.self) {
                 provider.loadObject(ofClass: UIImage.self) { image, _ in
-                    guard let uiImage = image as? UIImage, let ciImage = CIImage(image:uiImage) else { return }
+                    guard let uiImage = image as? UIImage, let ciImage = CIImage(image:uiImage) else {
+                        self.completion(.failure(.badInput))
+                        return
+                    }
 
                     var qrCodeLink = ""
                     var options: [String: Any]
@@ -65,6 +72,7 @@ struct ImageCodeScannerView: UIViewControllerRepresentable {
                         options = [CIDetectorImageOrientation: 1]
                     }
                     guard let features = qrDetector?.features(in: ciImage, options: options) as? [CIQRCodeFeature] else {
+                        self.completion(.failure(.badInput))
                         return
                     }
 
@@ -73,6 +81,7 @@ struct ImageCodeScannerView: UIViewControllerRepresentable {
                     }
 
                     print(qrCodeLink)
+                    self.completion(.success(ScanResult(string: qrCodeLink, type: .qr)))
                 }
             }
         }
@@ -81,6 +90,6 @@ struct ImageCodeScannerView: UIViewControllerRepresentable {
 
 struct ImageCodeScannerView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageCodeScannerView()
+        ImageCodeScannerView(showView: .constant(true), completion: {ans in print(ans)})
     }
 }

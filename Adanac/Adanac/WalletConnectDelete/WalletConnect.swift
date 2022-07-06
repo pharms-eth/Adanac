@@ -6,12 +6,14 @@
 //
 
 import Foundation
+#if os(iOS)
 import VisionKit
 import UIKit
+#endif
 import AVFoundation
 import WalletConnectSwift
-
-//Create, reconnect, disconnect, and update session
+import Combine
+import web3swift
 
 //Default implementation of WalletConnect SDK API
 //personal_sign
@@ -20,24 +22,46 @@ import WalletConnectSwift
 //eth_sendTransaction
 //eth_signTransaction
 //eth_sendRawTransaction
-//Wallet Example App:
-//Connecting via QR code reader
+
 //Connecting via deep link ("wc" scheme)
-//Reconnecting after restart
-//Examples of request handlers
 
 //let controller = DataScannerViewController()
 
 class WalletConnectServerManager: ObservableObject {
-    var server: Server? = nil
-    var session: Session? = nil
-    let sessionKey = "sessionKey"
+    private var server: Server? = nil
+    @Published var session: Session? = nil
+    private let sessionKey = "sessionKey"
+    
+    let moc = WalletDataController().container.viewContext
+
+    @Published var sessions: [WCSession]?
+    let fetchRequest = WCSession.fetchRequest()
+    private var cancellables: [AnyCancellable] = []
+
     init(){
         self.server = Server(delegate: self)
-        configureServer()
+        configureServer(privateKey: nil)
+        Task {
+            await fetchSessions()
+        }
+        $session.sink { newSession in
+            guard let newSession = newSession else {
+                return
+            }
+            Task {
+                try? await self.save(newSession)
+                await self.fetchSessions()
+            }
+        }
+        .store(in: &cancellables)
     }
 
-//        let privateKey: EthereumPrivateKey = try! EthereumPrivateKey(privateKey: .init(hex: "BD9F406A928238E9500E4C7276F77E6D15118D62CC6B65B5A39C442BE6F1262F"))
+    var privateKey: AbstractKeystoreParams? = nil
+
+    func set(privateKey: AbstractKeystoreParams) {
+        self.privateKey = privateKey
+        configureServer(privateKey: privateKey)
+    }
 
 
     func disconnect() {
@@ -48,43 +72,229 @@ class WalletConnectServerManager: ObservableObject {
         try? server?.disconnect(from: session)
     }
 
-    private func configureServer() {
-        server = Server(delegate: self)
-//        server.register(handler: PersonalSignHandler(for: self, server: server, privateKey: privateKey))
+    private func configureServer(privateKey: AbstractKeystoreParams?) {
+        guard let key = privateKey ?? self.privateKey else {
+            return
+        }
+        server?.register(handler: BaseHandler(server: server!, privateKey: key))
+        server?.register(handler: PersonalSignHandler(server: server!, privateKey: key))
 //        server.register(handler: SignTransactionHandler(for: self, server: server, privateKey: privateKey))
-//        if let oldSessionObject = UserDefaults.standard.object(forKey: sessionKey) as? Data,
-//            let session = try? JSONDecoder().decode(Session.self, from: oldSessionObject) {
-//            try? server?.reconnect(to: session)
-//        }
+    }
+
+    func save(_ session: Session) async throws {
+
+        try await moc.perform {
+            let walletInfo = session.walletInfo
+
+            let walletInfoPeer = walletInfo?.peerMeta
+            let peerMeta = WCClientMeta(context: self.moc)
+            peerMeta.name = walletInfoPeer?.name
+            peerMeta.desc = walletInfoPeer?.description
+            peerMeta.url = walletInfoPeer?.url.absoluteString
+            peerMeta.scheme = walletInfoPeer?.scheme
+            if let iconSet = walletInfoPeer?.icons {
+                peerMeta.iconArray = iconSet
+            }
+
+            let newWalletInfo = WCWalletInfo(context: self.moc)
+            newWalletInfo.accountsArray = walletInfo?.accounts ?? []
+            newWalletInfo.peerID = walletInfo?.peerId
+            newWalletInfo.approved = walletInfo?.approved ?? false
+            newWalletInfo.chainID = Int64(walletInfo?.chainId ?? 0)
+            newWalletInfo.peerMeta = peerMeta
+
+            let sessionURL = session.url
+
+            let newSessionURL = WCSessionURL(context: self.moc)
+            newSessionURL.topic = sessionURL.topic
+            newSessionURL.version = sessionURL.version
+            newSessionURL.bridgeURL = sessionURL.bridgeURL.absoluteString
+            newSessionURL.key = sessionURL.key
+            newSessionURL.absoluteString = sessionURL.absoluteString
+
+            let dAppInfo = session.dAppInfo
+
+            let dAppInfoPeer = dAppInfo.peerMeta
+            let dAppInfoPeerMeta = WCClientMeta(context: self.moc)
+            dAppInfoPeerMeta.name = dAppInfoPeer.name
+            dAppInfoPeerMeta.desc = dAppInfoPeer.description
+            dAppInfoPeerMeta.url = dAppInfoPeer.url.absoluteString
+            dAppInfoPeerMeta.scheme = dAppInfoPeer.scheme
+            dAppInfoPeerMeta.iconArray = dAppInfoPeer.icons
+
+            let newDAppInfo = WCDAppInfo(context: self.moc)
+            newDAppInfo.peerID = dAppInfo.peerId
+            newDAppInfo.chainID = Int64(dAppInfo.chainId ?? -1)
+            newDAppInfo.approved = dAppInfo.approved ?? false
+            newDAppInfo.peerMeta = dAppInfoPeerMeta
+
+            let newWCSession = WCSession(context: self.moc)
+            newWCSession.walletInfo = newWalletInfo
+            newWCSession.dAppInfo = newDAppInfo
+            newWCSession.url = newSessionURL
+
+            try self.moc.save()
+        }
+        // TODO: save seedPhrase to icloud
+    }
+
+    func fetchSessions() async {
+        await moc.perform {
+            do {
+                //        fetchRequest.predicate
+                //        fetchRequest.sortDescriptors
+                let directKeystores = try self.fetchRequest.execute()
+                DispatchQueue.main.async {
+                    let badElements = directKeystores.filter { $0.dAppInfo?.peerMeta?.icons == nil && $0.dAppInfo?.peerMeta?.name == nil }
+                    var storedSessions = directKeystores
+                    for el in badElements {
+                        if let index = storedSessions.firstIndex(of: el) {
+                            storedSessions.remove(at: index)
+                        }
+                    }
+
+                    self.sessions = storedSessions
+
+                    guard !badElements.isEmpty else {
+                        return
+                    }
+
+                    Task {
+                        await self.moc.perform {
+
+                            badElements.forEach { element in
+                                guard let index = self.sessions?.firstIndex(where: { $0.dAppInfo?.peerID == element.dAppInfo?.peerID } ) else {
+                                    return
+                                }
+                                guard let keyStore = self.sessions?[index] else {
+                                    return
+                                }
+                                self.moc.delete(keyStore)
+                            }
+
+                            try? self.moc.save()
+                        }
+
+                        await self.fetchSessions()
+                    }
+
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+
+    func deleteSessions(at offsets: IndexSet) {
+        Task {
+            await moc.perform {
+                offsets.forEach { offset in
+                    guard let keyStore = self.sessions?[offset] else {
+                        return
+                    }
+                    self.moc.delete(keyStore)
+                }
+
+                try? self.moc.save()
+            }
+
+            await fetchSessions()
+        }
+    }
+
+    func disconnect(session: WCSession) {
+
+        guard let parsedSession = generateSession(from: session) else {
+            return
+        }
+
+        try? server?.disconnect(from: parsedSession)
+        Task {
+            await moc.perform {
+                self.moc.delete(session)
+
+                try? self.moc.save()
+            }
+
+            await fetchSessions()
+        }
+    }
+
+    func reconnect(session: WCSession) {
+
+        guard let parsedSession = generateSession(from: session) else {
+            return
+        }
+
+        try? server?.reconnect(to: parsedSession)
+    }
+
+    func generateSession(from session: WCSession) -> Session? {
+        guard let wcURL = session.url, let bridgeURLValue = wcURL.bridgeURL, let bridgeURL = URL(string: bridgeURLValue), let wcDAppInfo = session.dAppInfo else {
+            return nil
+        }
+
+        let url = WCURL(topic: wcURL.topic ?? "", version: wcURL.version ?? "0", bridgeURL: bridgeURL, key: wcURL.key ?? "")
+
+        guard let dAppInfoPeerMetaURLValue = wcDAppInfo.peerMeta?.url, let dAppInfoPeerMetaURL = URL(string: dAppInfoPeerMetaURLValue) else {
+            return nil
+        }
+
+        let dAppInfoPeerMeta = Session.ClientMeta(name: wcDAppInfo.peerMeta?.name ?? "", description: wcDAppInfo.peerMeta?.desc, icons: wcDAppInfo.peerMeta?.iconArray ?? [], url: dAppInfoPeerMetaURL, scheme: wcDAppInfo.peerMeta?.scheme)
+        let dAppInfo = Session.DAppInfo(peerId: wcDAppInfo.peerID ?? "", peerMeta: dAppInfoPeerMeta, chainId: Int(wcDAppInfo.chainID), approved: wcDAppInfo.approved)
+
+        var parsedSession = Session(url: url, dAppInfo: dAppInfo, walletInfo: nil)
+
+
+        if let wcWalletInfo = session.walletInfo {
+
+            guard let walletInfoPeerMetaURLValue = wcWalletInfo.peerMeta?.url, let walletInfoPeerMetaURL = URL(string: walletInfoPeerMetaURLValue) else {
+                return nil
+            }
+
+            let walletInfoPeerMeta = Session.ClientMeta(name: wcWalletInfo.peerMeta?.name ?? "", description: wcWalletInfo.peerMeta?.desc, icons: wcWalletInfo.peerMeta?.iconArray ?? [], url: walletInfoPeerMetaURL, scheme: wcWalletInfo.peerMeta?.scheme)
+
+
+            let walletInfo =  Session.WalletInfo(approved: wcWalletInfo.approved, accounts: wcWalletInfo.accountsArray, chainId: Int(wcWalletInfo.chainID), peerId: wcWalletInfo.peerID ?? "", peerMeta: walletInfoPeerMeta)
+
+            parsedSession.walletInfo = walletInfo
+        }
+
+        return parsedSession
     }
 }
 
 extension WalletConnectServerManager: ServerDelegate {
     func server(_ server: Server, didFailToConnect url: WCURL) {
-        //RESET UI TO SCAN QR
         //Alert user scan failed
     }
 
     func server(_ server: Server, shouldStart session: Session, completion: @escaping (Session.WalletInfo) -> Void) {
-        let walletMeta = Session.ClientMeta(name: "Test Wallet",
-                                            description: nil,
-                                            icons: [],
-                                            url: URL(string: "https://safe.gnosis.io")!)
+        let walletMeta = Session.ClientMeta(name: "Adanac Wallet",
+                                            description: "Adanac makes exploring Crypto fun and accessible ",
+                                            icons: [URL(string:"https://example.com/1.png")!, URL(string:"https://example.com/2.png")!],
+                                            url: URL(string: "https://Adanac.eth")!)
+
+        var accounts = [String]()
+
+        if let keyStore = privateKey as? KeystoreParamsBIP32 {
+            accounts = keyStore.pathAddressPairs.map { $0.address }
+        } else if let keyStore = privateKey as? KeystoreParamsV3 {
+            if let address = keyStore.address {
+                accounts = [address]
+            }
+        }
+
         let walletInfo = Session.WalletInfo(approved: true,
-                                            accounts: ["0x00"],//[privateKey.address.hex(eip55: true)],
+                                            accounts: accounts,
                                             chainId: 4,
                                             peerId: UUID().uuidString,
                                             peerMeta: walletMeta)
 
-//        let onClose: (() -> Void) = {
-//            completion(Session.WalletInfo(approved: false, accounts: [], chainId: 4, peerId: "", peerMeta: walletMeta))
-//            //RESET UI TO SCAN QR
-//        }
-
-        let alert = UIAlertController(title: "Request to start a session", message: session.dAppInfo.peerMeta.name, preferredStyle: .alert)
-        let startAction = UIAlertAction(title: "Start", style: .default) { _ in completion(walletInfo) }
-        alert.addAction(startAction)
-//        self.present(alert.withCloseButton(onClose: onClose), animated: true)
+//        let alert = UIAlertController(title: "Request to start a session", message: session.dAppInfo.peerMeta.name, preferredStyle: .alert)
+//        let startAction = UIAlertAction(title: "Start", style: .default) { _ in completion(walletInfo) }
+//        alert.addAction(startAction)
+        completion(walletInfo)
     }
 
     func server(_ server: Server, didConnect session: Session) {
@@ -92,17 +302,45 @@ extension WalletConnectServerManager: ServerDelegate {
             print("App only supports 1 session atm, cleaning...")
             try? self.server?.disconnect(from: currentSession)
         }
-        self.session = session
-//        let sessionData = try! JSONEncoder().encode(session)
-//        cache set(sessionData, forKey: sessionKey)
-        //UPDATE UI to show disconnect button, hide QR scan button
-//            self.statusLabel.text = "Connected to \(session.dAppInfo.peerMeta.name)"
+        DispatchQueue.main.async {
+            self.session = session
+        }
+
+        Task {
+            do {
+                try await save(session)
+            } catch {
+                print(error)
+            }
+        }
+
     }
 
     func server(_ server: Server, didDisconnect session: Session) {
         //remove session key from useage
-        //RESET UI TO SCAN QR
-        //Alert User session disconnected
+        if self.session == session {
+            DispatchQueue.main.async {
+                self.session = nil
+            }
+        }
+
+
+
+        Task {
+            await moc.perform {
+                guard let index = self.sessions?.firstIndex(where: { $0.dAppInfo?.peerID == session.dAppInfo.peerId } ) else {
+                    return
+                }
+                guard let keyStore = self.sessions?[index] else {
+                    return
+                }
+                self.moc.delete(keyStore)
+
+                try? self.moc.save()
+            }
+
+            await fetchSessions()
+        }
     }
 
     func server(_ server: Server, didUpdate session: Session) {
@@ -110,23 +348,10 @@ extension WalletConnectServerManager: ServerDelegate {
     }
 }
 
-extension WalletConnectServerManager: ScannerViewControllerDelegate {
-    func didFail(reason: ScanError) {
-        //UPDateUI
-    }
-
-    func found(_ result: ScanResult) {
-        didScan(result.string)
-    }
-
-    func reset() {
-        //UPDATE UI
-    }
+extension WalletConnectServerManager {
 
     func didScan(_ code: String) {
         guard let url = WCURL(code) else { return }
-//        scanQRCodeButton.isEnabled = false
-//        scannerController?.dismiss(animated: true)
         do {
             try self.server?.connect(to: url)
         } catch {
@@ -135,142 +360,6 @@ extension WalletConnectServerManager: ScannerViewControllerDelegate {
     }
 }
 
-
-
-
-
-
-////You do this by registering request handlers. You have the flexibility to register one handler per request method, or a catch-all request handler.
-//
-//server.register(handler: PersonalSignHandler(for: self, server: server, wallet: wallet))
-////Handlers are asked (in order of registration) whether they can handle each request. First handler that returns true from canHandle(request:) method will get the handle(request:) call. All other handlers will be skipped.
-////
-////In the request handler, check the incoming request's method in canHandle implementation, and handle actual request in the handle(request:) implementation.
-//
-//func canHandle(request: Request) -> Bool {
-//   return request.method == "eth_signTransaction"
-//}
-////You can send back response for the request through the server using send method:
-//
-//func handle(request: Request) {
-//  // do you stuff here ...
-//
-//  // error response - rejected by user
-//  server.send(.reject(request))
-//
-//  // or send actual response - assuming the request.id exists, and MyCodableStruct type defined
-//  try server.send(Response(url: request.url, value: MyCodableStruct(value: "Something"), id: request.id!))
-//}
-////For more details, see the ExampleApps/ServerApp
-
-
-
-
-//class BaseHandler: RequestHandler {
-//    weak var controller: UIViewController!
-//    weak var sever: Server!
-//    weak var privateKey: EthereumPrivateKey!
-//
-//    init(for controller: UIViewController, server: Server, privateKey: EthereumPrivateKey) {
-//        self.controller = controller
-//        self.sever = server
-//        self.privateKey = privateKey
-//    }
-//
-//    func canHandle(request: Request) -> Bool {
-//        return false
-//    }
-//
-//    func handle(request: Request) {
-//        // to override
-//    }
-//
-//    func askToSign(request: Request, message: String, sign: @escaping () -> String) {
-//        let onSign = {
-//            let signature = sign()
-//            self.sever.send(.signature(signature, for: request))
-//        }
-//        let onCancel = {
-//            self.sever.send(.reject(request))
-//        }
-//        DispatchQueue.main.async {
-//            UIAlertController.showShouldSign(from: self.controller,
-//                                             title: "Request to sign a message",
-//                                             message: message,
-//                                             onSign: onSign,
-//                                             onCancel: onCancel)
-//        }
-//    }
-//}
-
-//class PersonalSignHandler: BaseHandler {
-//    override func canHandle(request: Request) -> Bool {
-//        return request.method == "personal_sign"
-//    }
-//
-//    override func handle(request: Request) {
-//        do {
-//            let messageBytes = try request.parameter(of: String.self, at: 0)
-//            let address = try request.parameter(of: String.self, at: 1)
-//
-//            guard address == privateKey.address.hex(eip55: true) else {
-//                sever.send(.reject(request))
-//                return
-//            }
-//
-//            let decodedMessage = String(data: Data(hex: messageBytes), encoding: .utf8) ?? messageBytes
-//
-//            askToSign(request: request, message: decodedMessage) {
-//                let personalMessageData = self.personalMessageData(messageData: Data(hex: messageBytes))
-//                let (v, r, s) = try! self.privateKey.sign(message: .init(hex: personalMessageData.toHexString()))
-//                return "0x" + r.toHexString() + s.toHexString() + String(v + 27, radix: 16) // v in [0, 1]
-//            }
-//        } catch {
-//            sever.send(.invalid(request))
-//            return
-//        }
-//    }
-//
-//    private func personalMessageData(messageData: Data) -> Data {
-//        let prefix = "\u{19}Ethereum Signed Message:\n"
-//        let prefixData = (prefix + String(messageData.count)).data(using: .ascii)!
-//        return prefixData + messageData
-//    }
-//}
-
-//class SignTransactionHandler: BaseHandler {
-//    override func canHandle(request: Request) -> Bool {
-//        return request.method == "eth_signTransaction"
-//    }
-//
-//    override func handle(request: Request) {
-//        do {
-//            let transaction = try request.parameter(of: EthereumTransaction.self, at: 0)
-//            guard transaction.from == privateKey.address else {
-//                self.sever.send(.reject(request))
-//                return
-//            }
-//
-//            askToSign(request: request, message: transaction.description) {
-//                let signedTx = try! transaction.sign(with: self.privateKey, chainId: 4)
-//                let (r, s, v) = (signedTx.r, signedTx.s, signedTx.v)
-//                return r.hex() + s.hex().dropFirst(2) + String(v.quantity, radix: 16)
-//            }
-//        } catch {
-//            self.sever.send(.invalid(request))
-//        }
-//    }
-//}
-
-//==============================================================
-//==============================================================
-
-
-//extension Response {
-//    static func signature(_ signature: String, for request: Request) -> Response {
-//        return try! Response(url: request.url, value: signature, id: request.id!)
-//    }
-//}
 
 //extension UIAlertController {
 //    func withCloseButton(title: String = "Close", onClose: (() -> Void)? = nil ) -> UIAlertController {

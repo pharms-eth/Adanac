@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Address" representedClassName="Address" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="path" optional="YES" attributeType="String"/>
@@ -38,7 +38,9 @@
         <attribute name="access" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="isHDWallet" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String"/>
         <attribute name="rootPath" optional="YES" attributeType="String"/>
+        <attribute name="tint" optional="YES" attributeType="String"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="address" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Address" inverseName="keystore" inverseEntity="Address"/>
         <relationship name="crypto" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CryptoParams" inverseName="keystore" inverseEntity="CryptoParams"/>
@@ -48,11 +50,63 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="WCClientMeta" representedClassName="WCClientMeta" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="icons" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="scheme" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="dAppParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCDAppInfo" inverseName="peerMeta" inverseEntity="WCDAppInfo"/>
+        <relationship name="wCWalletParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCWalletInfo" inverseName="peerMeta" inverseEntity="WCWalletInfo"/>
+    </entity>
+    <entity name="WCDAppInfo" representedClassName="WCDAppInfo" syncable="YES">
+        <attribute name="approved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="chainID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="peerID" optional="YES" attributeType="String"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCSession" inverseName="dAppInfo" inverseEntity="WCSession"/>
+        <relationship name="peerMeta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCClientMeta" inverseName="dAppParent" inverseEntity="WCClientMeta"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="peerID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="WCSession" representedClassName="WCSession" syncable="YES">
+        <relationship name="dAppInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCDAppInfo" inverseName="parent" inverseEntity="WCDAppInfo"/>
+        <relationship name="url" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCSessionURL" inverseName="parent" inverseEntity="WCSessionURL"/>
+        <relationship name="walletInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCWalletInfo" inverseName="parent" inverseEntity="WCWalletInfo"/>
+    </entity>
+    <entity name="WCSessionURL" representedClassName="WCSessionURL" syncable="YES">
+        <attribute name="absoluteString" optional="YES" attributeType="String"/>
+        <attribute name="bridgeURL" optional="YES" attributeType="String"/>
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <attribute name="topic" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="String"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCSession" inverseName="url" inverseEntity="WCSession"/>
+    </entity>
+    <entity name="WCWalletInfo" representedClassName="WCWalletInfo" syncable="YES">
+        <attribute name="accounts" optional="YES" attributeType="String"/>
+        <attribute name="approved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="chainID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="peerID" optional="YES" attributeType="String"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCSession" inverseName="walletInfo" inverseEntity="WCSession"/>
+        <relationship name="peerMeta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WCClientMeta" inverseName="wCWalletParent" inverseEntity="WCClientMeta"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="peerID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <elements>
-        <element name="Address" positionX="-63" positionY="9" width="128" height="74"/>
-        <element name="CipherParams" positionX="-45" positionY="63" width="128" height="59"/>
-        <element name="CryptoParams" positionX="-54" positionY="18" width="128" height="149"/>
-        <element name="KdfParams" positionX="-36" positionY="72" width="128" height="149"/>
-        <element name="Keystore" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Address" positionX="-438.609375" positionY="-235.8203125" width="128" height="74"/>
+        <element name="CipherParams" positionX="-58.00390625" positionY="-423.67578125" width="128" height="59"/>
+        <element name="CryptoParams" positionX="110.91796875" positionY="-274.45703125" width="128" height="149"/>
+        <element name="KdfParams" positionX="-90.83203125" positionY="-325.37109375" width="128" height="149"/>
+        <element name="Keystore" positionX="-262.32421875" positionY="-258.96484375" width="128" height="164"/>
+        <element name="WCClientMeta" positionX="-173.73828125" positionY="279.3359375" width="128" height="148"/>
+        <element name="WCDAppInfo" positionX="-197.26171875" positionY="85.8671875" width="128" height="104"/>
+        <element name="WCSession" positionX="-15.67578125" positionY="-7.06640625" width="128" height="74"/>
+        <element name="WCSessionURL" positionX="157.38671875" positionY="4.40625" width="128" height="119"/>
+        <element name="WCWalletInfo" positionX="-7.0703125" positionY="158.703125" width="128" height="119"/>
     </elements>
 </model>
